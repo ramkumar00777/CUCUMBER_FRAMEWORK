@@ -69,6 +69,14 @@
     </dependencies>
 
     <build>
+         <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.feature</include>
+                </includes>
+            </testResource>
+        </testResources>
         <plugins>
             <!-- Surefire Plugin for running TestRunner -->
             <plugin>
