@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.Properties;
@@ -37,8 +36,11 @@ public class BrowserUtils extends BaseClass {
 
     public static void validateText(String xpath, String expectedText) {
         String actualText = findAndWaitForElement(xpath).getText();
-        Assert.assertEquals(expectedText, actualText);
+        if (!actualText.equals(expectedText)) {
+            throw new RuntimeException("Expected: " + expectedText + " but found: " + actualText);
+        }
     }
+
 
 
 
